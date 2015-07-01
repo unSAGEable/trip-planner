@@ -1,0 +1,20 @@
+{
+  "name": "trip-planner",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jkim430/Hello-Fullstack",
+  "authors": [
+    "Justin Kim <jkim430@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}
