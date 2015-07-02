@@ -10,13 +10,13 @@
 			<ul>
 				<li>Hotels:
 					<div class="input-group input-group-sm">
-						<select class="form-control">
+						<select class="form-control" id="selecthotel">
 							{% for hotel in results.hotels %}
 							<option value="{{hotel.name}}">{{hotel.name}}</option>
 							{% endfor %}
 						</select>
 						<span class="input-group-btn">
-						  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
+						  	<button class="btn btn-default btn-primary" id="addhotel"><span class="glyphicon glyphicon-plus"></span>
 						  	</button>
 						</span>
 					</div>
@@ -24,13 +24,13 @@
 
 				<li>Things To Do:
 					<div class="input-group input-group-sm">
-						<select class="form-control">
+						<select class="form-control" id="selectthing">
 							{% for thing in results.things %}
 							<option value="{{thing.name}}">{{thing.name}}</option>
 							{% endfor %}
 						</select>
 						<span class="input-group-btn ">
-						  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
+						  	<button class="btn btn-default btn-primary" id="addthing"><span class="glyphicon glyphicon-plus"></span>
 						  	</button>
 						</span>
 					</div>
@@ -38,13 +38,13 @@
 
 				<li>Restaurants:
 					<div class="input-group input-group-sm">
-						<select class="form-control">
+						<select class="form-control" id="selectrestaurant">
 							{% for restaurant in results.restaurants %}
 							<option value="{{restaurant.name}}">{{restaurant.name}}</option>
 							{% endfor %}
 						</select>
 						<span class="input-group-btn">
-						  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
+						  	<button class="btn btn-default btn-primary" id="addrestaurant"><span class="glyphicon glyphicon-plus"></span>
 						  	</button>
 						</span>
 					</div>
@@ -58,63 +58,45 @@
 	<div class="row panel-default">
 		<div class="panel-heading">
 			<div class="panel-title">
-				Day 2 <button type="button" class="btn btn-xs btn-default btn-danger">
+				Day 1 <button type="button" class="btn btn-xs btn-default btn-danger" id="removeDay1">
 					<span class="glyphicon glyphicon-remove"></span>
 				</button>
 			</div>
 		    <nav>
 			  <ul class="pagination pagination-sm">
-			    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-			    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-			    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-			    <li><a href="#" aria-label="Previous"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+			    <li class="active daypage" id="1"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+			    <li id="add-day"><a href="#" aria-label="Previous"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
 			  </ul>
 			</nav>
 		</div>
-		<div class="panel-body bottom-panel">
-			<h4> My Hotels:</h4>
-			<ul>
-			{% for hotel in results.hotels %}
-				<li>
-					<div class="col-lg-11" style="padding-right:0px">{{hotel.name}}</div>
-					<div class="col-lg-1" style="padding-left:0px">
-						<button type="button" class="btn btn-xs btn-default btn-danger">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-					</div>
-				</li><br>
-			{% endfor %}
-			</ul>
+		<div id="itinerary">
+			<div class="panel-body bottom-panel current" id="day1">
+				<h4> My Hotels:</h4>
+				<ul class="fullwidth" id="hotellist">
 					
-			<h4>My Things To Do:</h4>
-			<ul>
-			{% for thing in results.things %}
-				<li>
-					<div class="col-lg-11" style="padding-right:0px">{{thing.name}}</div>
-					<div class="col-lg-1" style="padding-left:0px">
-						<button type="button" class="btn btn-xs btn-default btn-danger">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-					</div>
-				</li><br>
-			{% endfor %}
-			</ul>
+				</ul>
+						
+				<h4>My Things To Do:</h4>
+				<ul class="fullwidth" id="thinglist">
 
-			<h4>My Restaurants:</h4>
-			<ul>
-			{% for restaurant in results.restaurants %}
-				<li>
-					<div class="col-lg-11" style="padding-right:0px">{{restaurant.name}}</div>
-					<div class="col-lg-1" style="padding-left:0px">
-						<button type="button" class="btn btn-xs btn-default btn-danger">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-					</div>
-				</li><br>
-			{% endfor %}
-			</ul>
+				</ul>
+
+				<h4>My Restaurants:</h4>
+				<ul class="fullwidth" id="restaurantlist">
+		
+				</ul>
+			</div>
 		</div>
+
 	</div>
 </div> <!-- end panel -->
+
+<script>
+{% autoescape false %}
+var all_hotels = {{ results.hotels | json }};
+var all_restaurants = {{ results.restaurants | json }};
+var all_things = {{ results.things | json }};
+{% endautoescape %}
+</script>
 
 {% endblock %}
