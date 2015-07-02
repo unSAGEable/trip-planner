@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 	})
 	.then(function(things) {
 		results['things'] = things;
-		console.log(results);
  	 	res.render('index', { results: results });
 	})
 });

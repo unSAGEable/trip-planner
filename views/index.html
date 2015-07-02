@@ -4,89 +4,117 @@
 <div class="container-fluid" id="map-canvas">
 </div>
 
-<div class="container" style="background-color: #aaa; opacity:0.65; position:absolute; top:110px; right:0; height:680px; width: 400px; border-radius:5px;"></div>
+<div class="container panel hasimage">
+	<div class="row panel-default">
+		<div class="panel-body">
+			<ul>
+				<li>Hotels:
+					<div class="input-group input-group-sm">
+						<select class="form-control">
+							{% for hotel in results.hotels %}
+							<option value="{{hotel.name}}">{{hotel.name}}</option>
+							{% endfor %}
+						</select>
+						<span class="input-group-btn">
+						  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
+						  	</button>
+						</span>
+					</div>
+				</li>
 
-	<div class="container panel">
-		<div class="row panel-default">
-			<div class="panel-body">
-				<ul>
-					<li>Hotels:
-						<div class="input-group input-group-sm">
-							<select class="form-control">
-								{% for hotel in results.hotels %}
-								<option value="{{hotel.name}}">{{hotel.name}}</option>
-								{% endfor %}
-							</select>
-							<span class="input-group-btn">
-							  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
-							  	</button>
-							</span>
-						</div>
-					</li>
-
-					<li>Things To Do:
-						<div class="input-group input-group-sm">
-							<select class="form-control">
-								{% for thing in results.things %}
-								<option value="{{thing.name}}">{{thing.name}}</option>
-								{% endfor %}
-							</select>
-							<span class="input-group-btn ">
-							  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
-							  	</button>
-							</span>
-						</div>
-					</li>
-					<li>Restaurants:
-						<div class="input-group input-group-sm">
-							<select class="form-control">
-								{% for restaurant in results.restaurants %}
-								<option value="{{restaurant.name}}">{{restaurant.name}}</option>
-								{% endfor %}
-							</select>
-							<span class="input-group-btn">
-							  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
-							  	</button>
-							</span>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-
-
-		<div class="row panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">Day var(x)</h3>
-			    <nav>
-				  <ul class="pagination pagination-sm">
-				    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-				    <li><a href="#" aria-label="Previous"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="panel-body bottom-panel">
-					<h4> My Hotels:</h4>
-						<ul>
-						{% for hotel in results.hotels %}
-							<li>{{hotel.name}}</li>
-						{% endfor %}
-						</ul>
-					<h4>My Things To Do:</h4>
-						<ul>
+				<li>Things To Do:
+					<div class="input-group input-group-sm">
+						<select class="form-control">
 							{% for thing in results.things %}
-							<li>{{thing.name}}</li>
+							<option value="{{thing.name}}">{{thing.name}}</option>
 							{% endfor %}
-						</ul>
-					<h4>My Restaurants:</h4>
-						<ul>
+						</select>
+						<span class="input-group-btn ">
+						  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
+						  	</button>
+						</span>
+					</div>
+				</li>
+
+				<li>Restaurants:
+					<div class="input-group input-group-sm">
+						<select class="form-control">
 							{% for restaurant in results.restaurants %}
-							<li>{{restaurant.name}}</li>
+							<option value="{{restaurant.name}}">{{restaurant.name}}</option>
 							{% endfor %}
-						</ul>
-			</div>
+						</select>
+						<span class="input-group-btn">
+						  	<button class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span>
+						  	</button>
+						</span>
+					</div>
+				</li>
+			</ul>
 		</div>
-	</div> <!-- end panel -->
+	</div>
+
+
+
+	<div class="row panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				Day 2 <button type="button" class="btn btn-xs btn-default btn-danger">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+			</div>
+		    <nav>
+			  <ul class="pagination pagination-sm">
+			    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+			    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+			    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+			    <li><a href="#" aria-label="Previous"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+			  </ul>
+			</nav>
+		</div>
+		<div class="panel-body bottom-panel">
+			<h4> My Hotels:</h4>
+			<ul>
+			{% for hotel in results.hotels %}
+				<li>
+					<div class="col-lg-11" style="padding-right:0px">{{hotel.name}}</div>
+					<div class="col-lg-1" style="padding-left:0px">
+						<button type="button" class="btn btn-xs btn-default btn-danger">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</li><br>
+			{% endfor %}
+			</ul>
+					
+			<h4>My Things To Do:</h4>
+			<ul>
+			{% for thing in results.things %}
+				<li>
+					<div class="col-lg-11" style="padding-right:0px">{{thing.name}}</div>
+					<div class="col-lg-1" style="padding-left:0px">
+						<button type="button" class="btn btn-xs btn-default btn-danger">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</li><br>
+			{% endfor %}
+			</ul>
+
+			<h4>My Restaurants:</h4>
+			<ul>
+			{% for restaurant in results.restaurants %}
+				<li>
+					<div class="col-lg-11" style="padding-right:0px">{{restaurant.name}}</div>
+					<div class="col-lg-1" style="padding-left:0px">
+						<button type="button" class="btn btn-xs btn-default btn-danger">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</li><br>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div> <!-- end panel -->
 
 {% endblock %}

@@ -371,7 +371,10 @@ body {
 
 .panel-title {
   padding-bottom: 20px;
-  color: white; }
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  font-weight: normal; }
 
 .panel-default {
   border-radius: 5px;
@@ -395,3 +398,10 @@ body {
 
 .active {
   background-color: #3c3c3c; }
+
+.hasimage {
+  background-image: url("../images/greytransp.png");
+  border-radius: 7px; }
+
+ul {
+  width: 100%; }
