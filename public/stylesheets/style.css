@@ -346,22 +346,20 @@ body {
 .navbar-nav li:hover {
   background-color: #3c3c3c; }
 
-.panel {
-  float: right;
-  width: 400px;
-  position: absolute;
-  background-color: transparent;
-  top: 110px;
-  right: 0px; }
+@media (min-width: 992px) {
+  .panel {
+    float: right;
+    width: 400px;
+    position: absolute;
+    background-color: transparent;
+    top: 110px;
+    right: 0px; }
+  .bottom-panel {
+    max-height: 320px;
+    overflow: scroll; } }
 
 .row {
   display: block; }
-  .row.panel1 {
-    background-color: red;
-    margin-bottom: 40px; }
-  .row.panel2 {
-    background-color: blue;
-    margin-bottom: 40px; }
   .row ul {
     padding-left: 0;
     list-style-type: none;
@@ -385,16 +383,59 @@ body {
   .panel-default .panel-heading {
     background-color: #222; }
 
-.bottom-panel {
-  max-height: 320px;
-  overflow: scroll; }
-
 .pagination {
   margin-bottom: 0px;
   margin-top: 0px; }
 
 #map-canvas {
   height: 100vh; }
+
+@media (max-width: 991px) {
+  .panel {
+    width: 100%;
+    background-color: transparent;
+    bottom: 0px;
+    position: fixed; }
+  .row {
+    display: inline; }
+    .row ul {
+      padding-left: 0;
+      list-style-type: none;
+      display: inline-block; }
+      .row ul li {
+        padding-bottom: 10px; }
+  .bottom-panel {
+    max-height: 165px;
+    overflow: scroll; }
+  .panel-title {
+    padding-bottom: 5px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: normal;
+    float: left; }
+  .panel-heading {
+    overflow: hidden; }
+  .pagination {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    float: right; }
+  .panel-default {
+    border-radius: 5px;
+    position: relative;
+    margin: 10px 0;
+    padding: 0 0;
+    opacity: 1;
+    background-color: #e0e0e0; }
+    .panel-default .panel-heading {
+      background-color: #222; }
+  .panel1 {
+    float: left; }
+  .panel2 {
+    float: right; }
+  h4 {
+    font-weight: bold;
+    font-size: 16px; } }
 
 .active {
   background-color: #3c3c3c; }
@@ -405,3 +446,9 @@ body {
 
 .fullwidth {
   width: 100%; }
+
+.col-lg-12 {
+  padding: 0px; }
+
+.col-md-12 {
+  padding: 0px; }
